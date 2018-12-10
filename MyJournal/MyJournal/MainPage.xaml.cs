@@ -1,6 +1,7 @@
-﻿using SQLite;
+﻿
+using SQLite;
 using System;
-using Xamarin.Forms;s;
+using Xamarin.Forms;
 
 namespace MyJournal
 {
@@ -17,16 +18,16 @@ namespace MyJournal
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
-                conn.CreateTable<Book>();
+                conn.CreateTable<Journal>();
 
-                var books = conn.Table<Book>().OrderByDescending(x => x.PostDate).ToList();
+                var books = conn.Table<Journal>().OrderByDescending(x => x.PostDate).ToList();
                 booksListView.ItemsSource = books;
             }
         }
 
         private void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewBook());
+            Navigation.PushAsync(new NewJournal());
         }
         //delete selected item from list
         public void Delete(Object Sender, EventArgs args)
@@ -44,12 +45,12 @@ namespace MyJournal
 
             if (e.SelectedItem != null)
             {
-                Navigation.PushAsync(new BookDetail
+                Navigation.PushAsync(new JournalDetail
                 {
-                    BindingContext = e.SelectedItem as Book
+                    BindingContext = e.SelectedItem as Journal
                 });
             }
         }
     }
 }
-}
+

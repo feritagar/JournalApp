@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +17,7 @@ namespace MyJournal
         {
             Journal journal = new Journal()
             {
-                JournalTitle = titleEntry.Text,
+                JournalName = titleEntry.Text,
                 JournalDetail = detailEntry.Text,
                 PostDate = DateTime.Now
             };
