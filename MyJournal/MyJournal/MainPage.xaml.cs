@@ -20,8 +20,8 @@ namespace MyJournal
             {
                 conn.CreateTable<Journal>();
 
-                var books = conn.Table<Journal>().OrderByDescending(x => x.PostDate).ToList();
-                booksListView.ItemsSource = books;
+                var journals = conn.Table<Journal>().OrderByDescending(x => x.PostDate).ToList();
+                journalsListView.ItemsSource = journals;
             }
         }
 
@@ -32,10 +32,10 @@ namespace MyJournal
         //delete selected item from list
         public void Delete(Object Sender, EventArgs args)
         {
-            var book = booksListView.SelectedItem;
+            var journal = journalsListView.SelectedItem;
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
-                conn.Delete(book);
+                conn.Delete(journal);
             }
             Navigation.PushAsync(new MainPage());
         }

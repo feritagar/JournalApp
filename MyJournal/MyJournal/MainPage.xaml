@@ -10,11 +10,11 @@
                      Clicked="Delete"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="booksListView" ItemsSource="{Binding Book}" ItemSelected="OnListItemSelected">
+    <ListView x:Name="journalsListView" ItemsSource="{Binding Journal}" ItemSelected="OnListItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate >
-                <TextCell Text="{Binding Name}"
-                          Detail="{Binding Author}"
+                <TextCell Text="{Binding JournalName}"
+                          Detail="{Binding JournalDetail}"
                           />
             </DataTemplate>
         </ListView.ItemTemplate>

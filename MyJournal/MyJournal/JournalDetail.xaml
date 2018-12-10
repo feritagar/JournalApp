@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding PostDate, StringFormat='{}{0:MM/dd/yyyy a\\t h:mm tt}'}"/>
-            <Label Text="{Binding Name}" FontSize="Medium" Font="Bold" FontFamily="Times New Roman"/>
-            <Label Text="{Binding Author}"/>
+            <Label Text="{Binding JournalName}" FontSize="Medium" Font="Bold" FontFamily="Times New Roman"/>
+            <Label Text="{Binding JournalDetail}"/>
             </StackLayout>
     </ContentPage.Content>
 </ContentPage>
