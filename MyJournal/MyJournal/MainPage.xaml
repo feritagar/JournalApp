@@ -3,12 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MyJournal"
              x:Class="MyJournal.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Activated="ToolbarItem_Activated"/>
+        <ToolbarItem Text="Delete" 
+                     Clicked="Delete"/>
+    </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ListView x:Name="booksListView" ItemsSource="{Binding Book}" ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate >
+                <TextCell Text="{Binding Name}"
+                          Detail="{Binding Author}"
+                          />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+
 
 </ContentPage>

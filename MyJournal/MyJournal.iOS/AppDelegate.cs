@@ -22,8 +22,17 @@ namespace MyJournal.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //to be able to read from database
+            string fileName = "journal_db.sqlite";
+            // check this. different for android. "Library" and ".." must be exacly like this.
+            string fileLocation = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string full_path = Path.Combine(fileLocation, fileName);
+
+
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            //LoadApplication(new App());
+            // to be able to read from database, use new constructor with string parameter and pass full_path to it.like we did for android
+            LoadApplication(new App(full_path));
 
             return base.FinishedLaunching(app, options);
         }

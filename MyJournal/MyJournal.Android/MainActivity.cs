@@ -1,11 +1,7 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace MyJournal.Droid
 {
@@ -18,8 +14,18 @@ namespace MyJournal.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            //for database
+            string fileName = "journal_db.sqlite";
+            string fileLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string full_path = Path.Combine(fileLocation, fileName);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            //LoadApplication(new App());
+
+            /* to be able to read from database,
+            use new constructor with string parameter and pass full_path to it.*/
+            LoadApplication(new App(full_path)); 
         }
     }
 }
